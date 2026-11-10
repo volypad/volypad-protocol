@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VOLYPAD</title>
+<meta name="description" content="VOLYPAD - powering the next generation of tokens. A live price board for Elysium.">
+<meta name="theme-color" content="#02150f">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+<meta property="og:title" content="VOLYPAD">
+<meta property="og:description" content="Powering the next generation of tokens.">
+<meta property="og:image" content="https://volypad.xyz/brand/og.png">
+<meta property="og:url" content="https://volypad.xyz/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top" id="top">
+  <div class="wrap top-row">
+    <a class="brand" href="#hero" aria-label="VOLYPAD home">
+      <img src="/brand/logo-128.png" width="36" height="36" alt="">
+      <span class="brand-word">VOLYPAD</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#board">Board</a><a href="#route">Route</a><a href="#network">Network</a>
+    </nav>
+    <div class="social" id="social"></div>
+  </div>
+  <div class="ca-band" id="ca-band">
+    <div class="wrap">
+      <div class="ca-label">Contract address</div>
+      <button type="button" class="ca" id="ca" aria-live="polite">
+        <span class="ca-text" id="ca-text"></span>
+        <span class="ca-act" id="ca-act" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="strip" aria-label="Price ticker">
+  <div class="marquee" id="ticker"><div class="marquee-track" id="ticker-track"></div></div>
+</section>
+
+<main>
+<section class="hero" id="hero">
+  <div class="layer mesh" data-depth="0.05" aria-hidden="true"></div>
+  <div class="layer dots" data-depth="0.12" aria-hidden="true"></div>
+  <div class="layer arcs" data-depth="0.2" aria-hidden="true">
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="none"><path d="M-20 520 Q420 80 980 -20"/><path d="M520 760 Q900 420 1240 330"/></svg>
+  </div>
+  <div class="layer emblem" data-depth="0.3" aria-hidden="true"><img src="/brand/logo-512.png" width="512" height="512" alt=""></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="pill" id="pill" role="status"><i class="dot"></i><span id="pill-text">Syncing</span></div>
+      <p class="eyebrow rise" style="--rise:1">Elysium staging ground</p>
+      <h1 class="rise" style="--rise:2">Fresh assets.<br><em>Clear</em> runway<b>.</b></h1>
+      <p class="sub rise" style="--rise:3">VOLYPAD gathers the busiest Elysium pools into a single glowing board, keeps one address pinned above everything, and stays out of your way.</p>
+      <div class="cta rise" style="--rise:4">
+        <a class="seal sheen" href="#board">Open the board</a>
+        <a class="seal ghost sheen" href="#route">See the route</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tiles">
+      <div class="tile spot reveal"><span class="k">Network</span><span class="v" id="t-chain">Elysium</span></div>
+      <div class="tile spot reveal"><span class="k">Chain ID</span><span class="v" id="t-id">99901</span></div>
+      <div class="tile spot reveal"><span class="k">Pools shown</span><span class="v" id="t-pools">—</span></div>
+      <div class="tile spot reveal"><span class="k">Board turnover</span><span class="v" id="t-vol">—</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="board" aria-labelledby="board-title">
+  <div class="sec-head reveal">
+    <h2 id="board-title" class="rule-after">Price board</h2>
+    <div class="tabs" role="tablist" aria-label="Sort board">
+      <button role="tab" aria-selected="true" data-sort="vol">Turnover</button>
+      <button role="tab" aria-selected="false" data-sort="chg">Momentum</button>
+      <button role="tab" aria-selected="false" data-sort="liq">Depth</button>
+    </div>
+  </div>
+  <div class="panel board reveal" id="boardpanel">
+    <div class="b-head" role="row">
+      <span>#</span><span>Asset</span><span class="r">Price</span><span class="r">24h</span><span class="r">Turnover</span><span class="r">Depth</span><span></span>
+    </div>
+    <div id="rows" role="table" aria-label="Elysium pools"></div>
+    <p class="b-err" id="b-err" hidden>— Market source unreachable. Showing the last good data where available.</p>
+  </div>
+</section>
+
+<section class="wrap section" id="route" aria-labelledby="route-title">
+  <div class="sec-head reveal"><h2 id="route-title" class="rule-after">The route</h2></div>
+  <div class="cards">
+    <article class="card spot reveal"><span class="num">01</span><h3>Arrive</h3><p>One address, pinned where nobody can miss it, copied in a single tap.</p></article>
+    <article class="card spot reveal"><span class="num">02</span><h3>Observe</h3><p>Prices, swings, depth and turnover for the busiest Elysium pools, refreshed every minute.</p></article>
+    <article class="card spot reveal"><span class="num">03</span><h3>Verify</h3><p>Each figure is read from open market feeds. Nothing on the board is typed in by hand.</p></article>
+  </div>
+</section>
+
+<section class="wrap section two" id="network" aria-labelledby="net-title">
+  <div class="panel reveal">
+    <h2 id="net-title" class="mini">Network card</h2>
+    <dl class="kv" id="netcard"></dl>
+  </div>
+  <div class="panel closer spot reveal">
+    <img src="/brand/logo-256.png" width="96" height="96" alt="">
+    <h2 class="mini">Stay close to the address.</h2>
+    <p>When the contract goes public it lands in the slot at the top of this page, and the board gains a pinned row of its own.</p>
+    <a class="seal sheen" href="#top">Back to the top</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#hero"><img src="/brand/logo-128.png" width="36" height="36" alt=""><span class="brand-word">VOLYPAD</span></a>
+      <p class="foot-note">Powering the next generation of tokens.</p>
+      <p class="foot-note dim">volypad.xyz</p>
+    </div>
+    <div class="fcol"><h4>Browse</h4><a href="#board">Board</a><a href="#route">Route</a><a href="#network">Network</a></div>
+    <div class="fcol" id="fcol-net"><h4>Chain</h4></div>
+    <div class="fcol" id="fcol-soc"><h4>Social</h4></div>
+  </div>
+  <div class="wrap"><p class="disclaimer">Market figures come from public feeds and can be late or wrong. Assets shown are made by third parties. This page is information, not advice.</p></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

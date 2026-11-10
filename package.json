@@ -1,0 +1,11 @@
+{
+  "name": "volypad",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VOLYPAD - powering the next generation of tokens.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
